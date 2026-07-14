@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="output.css">
+    <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.min.css">
+    <style>
+        .card{
+            box-shadow: 4px 8px 8px blue;
+            animation: enlarge 2s infinite;
+        }
+        @keyframes enlarge{
+            0%, 100% {
+                transform: scale(1.0);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+        }
+    </style>
+</head>
+<body class="relative">
+<nav class="bg-blue-600 fixed w-full z-50 text-white">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="flex items-center justify-between h-16">
+      <div class="flex items-center gap-3">
+        <span class="text-xl font-bold">MySite</span>
+      </div>
+      <div class="pr-4 pl-1 border-4 rounded-xl border-white gap-3 align-center">
+          <button class="text-2xl" id="nav">
+      		<i class="fa-solid fa-bars p-3"></i>
+      	</button>
+      </div>
+          <ul id="navItems" class="hidden absolute top-16 right-0 pl-7 pr-4 md:flex gap-6 bg-blue-600 h-screen flex flex-col pb-9 z-50">
+      		<li class="py-3"><i class="fa-solid fa-2x text-grey-100 fa-house"></i><a href="index.html" class="hover:text-gray-200 text-black font-extrabold text-3xl">Home</a></li>
+        	<li class="py-3"><i class="fa-solid fa-2x text-grey-100 fa-bell"></i><a href="about.html" class="hover:text-gray-200 text-black font-extrabold text-3xl">About</a></li>
+      		<li class="py-3"><i class="fa-solid fa-2x text-grey-100 fa-cog"></i><a href="services.html" class="hover:text-gray-200 text-black font-extrabold text-3xl">Services</a></li>
+      		<li class="py-3"><i class="fa-solid fa-2x text-grey-100 fa-user"></i><a href="contact.html" class="hover:text-gray-200 text-black font-extrabold text-3xl">Contact</a></li>
+      	</ul>
+    </div>
+  </div>
+</nav>
+
+<div class="relative flex flex-col pt-16 mb-16">
+    <img class="h-80 w-full" src="images/build.png">
+    <div class="absolute w-full mx-auto top-20 left-0">
+        <p class="text-6xl text-center font-extrabold" id="animatedText">ThePlace</p> 
+        <p class="text-4xl text-center text-purple-900 font-extrabold mb-8">Hotel</p>
+        <div class="card mx-auto bg-white p-3 flex flex-col items-center rounded-2xl w-60">
+            <p class="text-blue-400 text-lg font-bold text-center">Endeavor to book a room now to enjoy luxurious treatment</p>
+            <button class="bg-yellow-500 text-white p-2 rounded-lg">BOOK HERE<br><i class="fa-solid fa-2x fa-arrow-down"></i> </button>
+        </div>
+    </div>
+</div>
+
+<div class="flex flex-col px-8 text-2xl text-yellow-500 mb-16">
+    <p class="text-shadow-lg font-[500]">
+        Welcome to the dept of Information under the Faculty of School of Information and Communication Technology (SICT) Welcome to the dept of Information Technology (IFT) under the Faculty of School of Information and Communication Technology (SICT)
+    </p>
+</div>
+
+<div class="flex items-center mx-4">
+    <img src="images/drink.png" class="w-36 rounded-3xl">
+    <div class="flex flex-col ml-2">
+        <p class="text-blue-800 text-2xl font-bold text-center">Enjoy our sweet delicacies</p>
+    	<p class="text-yellow-600 text-base text-left">Here at ThePlace we serve wonderful delicacies to our customers through our well experienced and wonderful staff and chefs</p>
+    </div>
+</div>
+
+<div class="flex items-center mx-4 mt-28">
+    <div class="flex flex-col mr-4">
+        <p class="text-blue-800 text-2xl font-bold text-center">Enjoy our sweet delicacies</p>
+    	<p class="text-yellow-600 text-base text-left">Here at ThePlace we serve wonderful delicacies to our customers through our well experienced and wonderful staff and chefs</p>
+    </div>
+    <img src="images/food.png" class="w-36 rounded-3xl">
+</div>
+
+<div class="flex items-center mx-4 mt-28">
+    <img src="images/bed.png" class="w-36 rounded-3xl h-32">
+    <div class="flex flex-col ml-2">
+        <p class="text-blue-800 text-2xl font-bold text-center">Enjoy our sweet delicacies</p>
+    	<p class="text-yellow-600 text-base text-left">Here at ThePlace we serve wonderful delicacies to our customers through our well experienced and wonderful staff and chefs</p>
+    </div>
+</div>
+
+<div class="flex items-center mx-4 mt-28 mb-40">
+    <div class="flex flex-col mr-4">
+        <p class="text-blue-800 text-2xl font-bold text-center">Enjoy our sweet delicacies</p>
+    	<p class="text-yellow-600 text-base text-left">Here at ThePlace we serve wonderful delicacies to our customers through our well experienced and wonderful staff and chefs</p>
+    </div>
+    <img src="images/salon.png" class="w-36 rounded-3xl h-32">
+</div>
+    
+	<script src="script.js"></script>
+</body>
+</html>
+
+
+
+
