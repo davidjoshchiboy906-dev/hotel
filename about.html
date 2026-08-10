@@ -1,90 +1,96 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="tailwind.min.css">
-    <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.min.css">
-    <style>
-        .rounded-bl-3xl{
-            box-shadow: 32px 24px 20px blue;
-        }
-        .rounded-bl-3xl:hover{
-            animation: bounce ease-in-out 2s infinite alternate;
-        }
-        .card{
-            box-shadow: 4px 8px 8px blue;
-            animation: enlarge 2s infinite;
-        }
-        @keyframes enlarge{
-            0%, 100% {
-                transform: scale(1.0);
-            }
-            50% {
-                transform: scale(1.2);
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Grand Horizon Hotel</title>
+  <style>
+    :root {
+      --navy: #0f3d6b;
+      --gold: #d4a017;
+      --text: #15324d;
+      --bg: #f5f7fb;
+      --white: #ffffff;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { text-decoration: none; color: inherit; }
+    nav {
+      background: var(--navy);
+      color: var(--white);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+    .nav-wrap { max-width: 1100px; margin: 0 auto; padding: 1rem 1.25rem; display: flex; align-items: center; justify-content: space-between; }
+    .brand { font-size: 1.2rem; font-weight: 700; letter-spacing: 0.04em; }
+    .nav-links { display: flex; gap: 0.75rem; align-items: center; }
+    .nav-links a { padding: 0.5rem 0.8rem; border-radius: 999px; color: var(--white); }
+    .nav-links a:hover, .nav-links a.active { background: rgba(255,255,255,0.16); }
+    .menu-toggle { display: none; background: transparent; border: 1px solid rgba(255,255,255,0.4); color: var(--white); padding: 0.45rem 0.7rem; border-radius: 8px; cursor: pointer; }
+    .hero { background: linear-gradient(135deg, #163f63, #2564a6); color: var(--white); padding: 3rem 1.25rem; }
+    .hero-inner { max-width: 1100px; margin: 0 auto; }
+    .hero h1 { font-size: clamp(2rem, 4vw, 2.8rem); margin-bottom: 0.7rem; }
+    .section { max-width: 1100px; margin: 0 auto; padding: 2rem 1.25rem 3rem; }
+    .grid { display: grid; gap: 1rem; grid-template-columns: 1.1fr 0.9fr; align-items: center; }
+    .card { background: var(--white); border-radius: 16px; padding: 1.2rem; box-shadow: 0 8px 18px rgba(15,61,107,0.08); }
+    .card h3 { color: var(--navy); margin-bottom: 0.5rem; }
+    .stats { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); margin-top: 1rem; }
+    .stat { background: #eaf3ff; border-radius: 16px; padding: 1rem; }
+    .stat strong { display: block; font-size: 1.4rem; color: var(--navy); }
+    footer { background: #10263e; color: #c8d6e7; padding: 1.3rem 1.25rem; text-align: center; }
+    @media (max-width: 760px) { .menu-toggle { display: inline-block; } .nav-links { display: none; position: absolute; top: 100%; right: 1rem; flex-direction: column; background: var(--navy); padding: 0.75rem; border-radius: 12px; min-width: 160px; } .nav-links.open { display: flex; } .grid { grid-template-columns: 1fr; } }
+  </style>
 </head>
-<body class="relative">
-<nav class="bg-blue-600 fixed w-full z-50 text-white">
-  <div class="max-w-7xl mx-auto px-4">
-    <div class="flex items-center justify-between h-16">
-      <div class="flex items-center gap-3">
-        <span class="text-xl font-bold">MySite</span>
+<body>
+  <nav>
+    <div class="nav-wrap">
+      <a class="brand" href="index.html">Grand Horizon Hotel</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">☰</button>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a class="active" href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Contact</a>
       </div>
-      <div class="pr-4 pl-1 border-4 rounded-xl border-white gap-3 align-center">
-          <button class="text-2xl" id="nav">
-      		<i class="fa-solid fa-bars p-3"></i>
-      	</button>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-inner">
+      <h1>About our hotel</h1>
+      <p>Grand Horizon Hotel has been welcoming travelers with warm hospitality, elegant spaces, and attentive service for over a decade.</p>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="grid">
+      <div class="card">
+        <h3>Our story</h3>
+        <p>We believe every visit should feel like a retreat. From the moment you arrive, our team is dedicated to making your stay relaxing, comfortable, and memorable.</p>
       </div>
-          <ul id="navItems" class="hidden absolute top-16 right-0 pl-7 pr-4 md:flex gap-6 bg-blue-600 h-screen flex flex-col pb-9 z-50">
-      		<li class="py-3"><i class="fa-solid fa-2x text-grey-100 fa-house"></i><a href="index.html" class="hover:text-gray-200 text-black font-extrabold text-3xl">Home</a></li>
-        	<li class="py-3"><i class="fa-solid fa-2x text-grey-100 fa-bell"></i><a href="about.html" class="hover:text-gray-200 text-black font-extrabold text-3xl">About</a></li>
-      		<li class="py-3"><i class="fa-solid fa-2x text-grey-100 fa-cog"></i><a href="services.html" class="hover:text-gray-200 text-black font-extrabold text-3xl">Services</a></li>
-      		<li class="py-3"><i class="fa-solid fa-2x text-grey-100 fa-user"></i><a href="contact.html" class="hover:text-gray-200 text-black font-extrabold text-3xl">Contact</a></li>
-      	</ul>
+      <div class="card">
+        <h3>What we offer</h3>
+        <p>Luxury rooms, excellent dining, a tranquil spa, and event spaces designed for business or leisure travel.</p>
+      </div>
     </div>
-  </div>
-</nav>
 
-<div class="relative flex flex-col pt-16 mb-24">
-    <img class="h-80 w-full" src="images/build.png">
-    <div class="absolute w-full mx-auto top-20 left-0">
-        <p class="text-6xl text-center font-extrabold" id="animatedText">ThePlace</p> 
-        <p class="text-4xl text-center text-purple-900 font-extrabold mb-8">Hotel</p>
-        <div class="card mx-auto bg-white p-3 flex flex-col items-center rounded-2xl w-60">
-            <p class="text-blue-400 text-lg font-bold text-center">Endeavor to book a room now to enjoy luxurious treatment</p>
-            <button class="bg-yellow-500 text-white p-2 rounded-lg">BOOK HERE<br><i class="fa-solid fa-2x fa-arrow-down"></i> </button>
-        </div>
+    <div class="stats">
+      <div class="stat"><strong>10+</strong><span>Years of hospitality</span></div>
+      <div class="stat"><strong>150+</strong><span>Guest rooms</span></div>
+      <div class="stat"><strong>3</strong><span>Dining venues</span></div>
+      <div class="stat"><strong>100%</strong><span>Personalized service</span></div>
     </div>
-</div>
+  </main>
 
-<div class="bg-yellow-700 flex flex-col items-center mx-12 p-4 mb-24 text-blue-500 rounded-tr-3xl rounded-bl-3xl">
-    <i class="fa-solid fa-3x fa-user-shield"></i>
-    <p class="text-3xl font-extrabold text-center">Wonderful Security Services</p>
-    <div class="bg-black rounded-xl text-yellow-600 text-xl mt-4 p-2 font-bold">
-        <p class="text-center">Here at ThePlace hotel we offer 24/7 high level security services to all our customers</p>
-    </div>
-</div>
+  <footer>
+    <p>Grand Horizon Hotel • Built for comfort and convenience</p>
+  </footer>
 
-<div class="bg-yellow-700 flex flex-col items-center mx-12 p-4 mb-24 text-blue-500 rounded-tr-3xl rounded-bl-3xl">
-    <i class="fa-solid fa-3x fa-bolt"></i>           
-    <p class="text-3xl font-extrabold ltext-center">24/7 Electricity Services</p>
-    <div class="bg-black rounded-xl text-yellow-600 text-xl mt-4 p-2 font-bold">
-        <p class="text-center">Here at ThePlace hotel we offer 24/7 high level security services to all our customers</p>
-    </div>
-</div>
-
-<div class="bg-yellow-700 flex flex-col items-center mx-12 p-4 mb-24 text-blue-500 rounded-tr-3xl rounded-bl-3xl">
-    <i class="fa-solid fa-3x fa-credit-card"></i>
-    <p class="text-3xl font-extrabold text-center">Cheap & Affordable Services</p>
-    <div class="bg-black rounded-xl text-yellow-600 text-xl mt-4 p-2 font-bold">
-        <p class="text-center">Here at ThePlace hotel we offer 24/7 high level security services to all our customers</p>
-    </div>
-</div>
-
-<img class="w-full" src="images/about.png">
-    
-	<script src="script.js"></script>
-</body>
+  <script src="script.js"></script>
 </html>

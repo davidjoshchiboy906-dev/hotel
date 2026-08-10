@@ -1,172 +1,90 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="tailwind.min.css">
-    <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.min.css">
-    <style>
-        .bg-white{
-            box-shadow: 4px 8px 8px blue;
-        }
-        .triangle {
-            width: 0;
-            height: 0;
-
-            border-left: 240px solid transparent;
-            border-right: 240px solid transparent;
-            border-top: 172px solid hsl(29, 96%, 35%);
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Grand Horizon Hotel</title>
+  <style>
+    :root {
+      --navy: #0f3d6b;
+      --gold: #d4a017;
+      --text: #15324d;
+      --bg: #f5f7fb;
+      --white: #ffffff;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Arial, Helvetica, sans-serif; line-height: 1.6; color: var(--text); background: var(--bg); }
+    a { text-decoration: none; color: inherit; }
+    nav { background: var(--navy); color: var(--white); position: sticky; top: 0; z-index: 20; }
+    .nav-wrap { max-width: 1100px; margin: 0 auto; padding: 1rem 1.25rem; display: flex; align-items: center; justify-content: space-between; }
+    .brand { font-size: 1.2rem; font-weight: 700; letter-spacing: 0.04em; }
+    .nav-links { display: flex; gap: 0.75rem; align-items: center; }
+    .nav-links a { padding: 0.5rem 0.8rem; border-radius: 999px; color: var(--white); }
+    .nav-links a:hover, .nav-links a.active { background: rgba(255,255,255,0.16); }
+    .menu-toggle { display: none; background: transparent; border: 1px solid rgba(255,255,255,0.4); color: var(--white); padding: 0.45rem 0.7rem; border-radius: 8px; cursor: pointer; }
+    .hero { background: linear-gradient(135deg, #173c5f, #2a6ca8); color: var(--white); padding: 3rem 1.25rem; }
+    .hero-inner { max-width: 1100px; margin: 0 auto; }
+    .hero h1 { font-size: clamp(2rem, 4vw, 2.8rem); margin-bottom: 0.7rem; }
+    .section { max-width: 1100px; margin: 0 auto; padding: 2rem 1.25rem 3rem; }
+    .grid { display: grid; gap: 1rem; grid-template-columns: 1fr 1fr; }
+    .card { background: var(--white); border-radius: 16px; padding: 1.25rem; box-shadow: 0 8px 18px rgba(15,61,107,0.08); }
+    .card h3 { color: var(--navy); margin-bottom: 0.6rem; }
+    form { display: grid; gap: 0.7rem; }
+    input, textarea { width: 100%; padding: 0.75rem; border: 1px solid #d6e2f0; border-radius: 10px; font: inherit; }
+    button { border: 0; background: var(--gold); color: var(--white); padding: 0.8rem 1rem; border-radius: 999px; font-weight: 700; cursor: pointer; }
+    .contact-list { display: grid; gap: 0.7rem; }
+    footer { background: #10263e; color: #c8d6e7; padding: 1.3rem 1.25rem; text-align: center; }
+    @media (max-width: 760px) { .menu-toggle { display: inline-block; } .nav-links { display: none; position: absolute; top: 100%; right: 1rem; flex-direction: column; background: var(--navy); padding: 0.75rem; border-radius: 12px; min-width: 160px; } .nav-links.open { display: flex; } .grid { grid-template-columns: 1fr; } }
+  </style>
 </head>
-<body class="relative bg-yellow-700">
-<nav class="bg-blue-600 fixed w-full z-50 text-white">
-  <div class="max-w-7xl mx-auto px-4">
-    <div class="flex items-center justify-between h-16">
-      <div class="flex items-center gap-3">
-        <span class="text-xl font-bold">MySite</span>
+<body>
+  <nav>
+    <div class="nav-wrap">
+      <a class="brand" href="index.html">Grand Horizon Hotel</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">☰</button>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a class="active" href="contact.html">Contact</a>
       </div>
-      <div class="pr-4 pl-1 border-4 rounded-xl border-white gap-3 align-center">
-          <button class="text-2xl" id="nav">
-      		<i class="fa-solid fa-bars p-3"></i>
-      	</button>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-inner">
+      <h1>Contact us</h1>
+      <p>Tell us about your visit and we will help you plan the perfect stay.</p>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="grid">
+      <div class="card">
+        <h3>Send a message</h3>
+        <form>
+          <input type="text" placeholder="Your name" />
+          <input type="email" placeholder="Your email" />
+          <textarea rows="5" placeholder="How can we help?"></textarea>
+          <button type="submit">Submit</button>
+        </form>
       </div>
-          <ul id="navItems" class="hidden absolute top-16 right-0 pl-7 pr-4 md:flex gap-6 bg-blue-600 h-screen flex flex-col pb-9 z-50">
-      		<li class="py-3"><i class="fa-solid fa-2x text-grey-100 fa-house"></i><a href="index.html" class="hover:text-gray-200 text-black font-extrabold text-3xl">Home</a></li>
-        	<li class="py-3"><i class="fa-solid fa-2x text-grey-100 fa-bell"></i><a href="about.html" class="hover:text-gray-200 text-black font-extrabold text-3xl">About</a></li>
-      		<li class="py-3"><i class="fa-solid fa-2x text-grey-100 fa-cog"></i><a href="services.html" class="hover:text-gray-200 text-black font-extrabold text-3xl">Services</a></li>
-      		<li class="py-3"><i class="fa-solid fa-2x text-grey-100 fa-user"></i><a href="contact.html" class="hover:text-gray-200 text-black font-extrabold text-3xl">Contact</a></li>
-      	</ul>
-    </div>
-  </div>
-</nav>
-
-<div class="relative flex flex-col pt-16 mb-24">
-    <img class="h-80 w-full" src="images/build.png">
-    <div class="absolute w-full mx-auto top-20 left-0">
-        <p class="text-6xl text-center font-extrabold" id="animatedText">ThePlace</p> 
-        <p class="text-4xl text-center text-purple-900 font-extrabold mb-8">Hotel</p>
-        <div class="card mx-auto bg-white p-3 flex flex-col items-center rounded-2xl w-60">
-            <p class="text-blue-400 text-lg font-bold text-center">Endeavor to book a room now to enjoy luxurious treatment</p>
-            <button class="bg-yellow-500 text-white p-2 rounded-lg">BOOK HERE<br><i class="fa-solid fa-2x fa-arrow-down"></i> </button>
+      <div class="card">
+        <h3>Reach us</h3>
+        <div class="contact-list">
+          <p><strong>Phone:</strong> +1 (555) 014-7890</p>
+          <p><strong>Email:</strong> reservations@grandhorizon.com</p>
+          <p><strong>Address:</strong> 123 Ocean Avenue, Suite 45</p>
         </div>
+      </div>
     </div>
-</div>
+  </main>
 
-<div class="flex items-center justify-around">
-    <button class="flex flex-col items-center bg-white text-blue-600 rounded-2xl p-3">
-        <p class="font-extrabold text-xl">Room</p>
-        <p class="text-5xl font-extrabold">01</p>
-    </button> 
-    <button class="flex flex-col items-center bg-white text-blue-600 rounded-2xl p-3">
-        <p class="font-extrabold text-xl">Room</p>
-        <p class="text-5xl font-extrabold">02</p>
-    </button>
-    <button class="flex flex-col items-center bg-white text-blue-600 rounded-2xl p-3">
-        <p class="font-extrabold text-xl">Room</p>
-        <p class="text-5xl font-extrabold">03</p>
-    </button>
-    <button class="flex flex-col items-center bg-white text-blue-600 rounded-2xl p-3">
-        <p class="font-extrabold text-xl">Room</p>
-        <p class="text-5xl font-extrabold">04</p>
-    </button>
-</div>
+  <footer>
+    <p>Grand Horizon Hotel • We are ready to welcome you</p>
+  </footer>
 
-<div class="flex items-center justify-around mt-6">
-    <button class="flex flex-col items-center bg-white text-blue-600 rounded-2xl p-3">
-        <p class="font-extrabold text-xl">Room</p>
-        <p class="text-5xl font-extrabold">05</p>
-    </button>
-    <button class="flex flex-col items-center bg-white text-blue-600 rounded-2xl p-3">
-        <p class="font-extrabold text-xl">Room</p>
-        <p class="text-5xl font-extrabold">06</p>
-    </button>
-    <button class="flex flex-col items-center bg-white text-blue-600 rounded-2xl p-3">
-        <p class="font-extrabold text-xl">Room</p>
-        <p class="text-5xl font-extrabold">07</p>
-    </button>
-    <button class="flex flex-col items-center bg-white text-blue-600 rounded-2xl p-3">
-        <p class="font-extrabold text-xl">Room</p>
-        <p class="text-5xl font-extrabold">08</p>
-    </button>
-</div>
-
-<div class="flex items-center justify-around mt-6">
-    <button class="flex flex-col items-center bg-white text-blue-600 rounded-2xl p-3">
-        <p class="font-extrabold text-xl">Room</p>
-        <p class="text-5xl font-extrabold">09</p>
-    </button>
-    <button class="flex flex-col items-center bg-white text-blue-600 rounded-2xl p-3">
-        <p class="font-extrabold text-xl">Room</p>
-        <p class="text-5xl font-extrabold">10</p>
-    </button>
-    <button class="flex flex-col items-center bg-white text-blue-600 rounded-2xl p-3">
-        <p class="font-extrabold text-xl">Room</p>
-        <p class="text-5xl font-extrabold">11</p>
-    </button>
-    <button class="flex flex-col items-center bg-white text-blue-600 rounded-2xl p-3">
-        <p class="font-extrabold text-xl">Room</p>
-        <p class="text-5xl font-extrabold">12</p>
-    </button>
-</div>
-
-<div class="flex items-center justify-around mt-6 mb-32">
-    <button class="flex flex-col items-center bg-white text-blue-600 rounded-2xl p-3">
-        <p class="font-extrabold text-xl">Room</p>
-        <p class="text-5xl font-extrabold">13</p>
-    </button>
-    <button class="flex flex-col items-center bg-white text-blue-600 rounded-2xl p-3">
-        <p class="font-extrabold text-xl">Room</p>
-        <p class="text-5xl font-extrabold">14</p>
-    </button>
-    <button class="flex flex-col items-center bg-white text-blue-600 rounded-2xl p-3">
-        <p class="font-extrabold text-xl">Room</p>
-        <p class="text-5xl font-extrabold">15</p>
-    </button>
-    <button class="flex flex-col items-center bg-white text-blue-600 rounded-2xl p-3">
-        <p class="font-extrabold text-xl">Room</p>
-        <p class="text-5xl font-extrabold">16</p>
-    </button>
-</div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
-<div class="relative w-full flex flex-col mb-40">
-    <img class="h-80" src="images/room.png">
-    <div class="absolute w-full top-0 left-0 flex flex-col">
-        <div class="relative mb-12 flex flex-col">
-            <div class="mx-auto flex flex-col">
-                <div class="triangle mx-auto"></div>
-                <p class="absolute w-full mx-auto w-64 px-20 top-0 left-2 text-3xl font-bold text-blue-300 text-center flex flex-col items-center">
-                    Contact us on any of our platforms
-                    <i class="fa-solid fa-3x fa-arrow-down"></i>
-                </p>
-            </div>
-        </div>
-        <div class="w-full flex items-center justify-around">
-            <div class="flex flex-col items-center bg-white text-blue-600 rounded-2xl p-3">
-        		<i class="fa-solid row fa-3x fa-phone"></i>
-        		<p class="text-center">Phone</p> 
-       		    <p class="">09068359935</p>
-    		</div>
-            <div class="flex flex-col items-center bg-white text-blue-600 rounded-2xl p-3">
-        		<i class="fa-solid row fa-3x fa-phone"></i>
-        		<p class="text-center">Phone</p> 
-       		    <p class="">09068359935</p>
-    		</div>
-      	    <div class="flex flex-col items-center bg-white text-blue-600 rounded-2xl p-3">
-        		<i class="fab row fa-3x fa-whatsapp"></i>
-      	  	    <p class="text-center">Phone</p> 
-       		    <p class="">09068359935</p>
-    		</div>
-       	    <div class="flex flex-col items-center bg-white text-blue-600 rounded-2xl p-3">
-                <i class="fa-solid row fa-3x fa-envelope"></i>
-                <p class="text-center">Phone</p> 
-                <p class="">09068359935</p>
-    		</div>
-        </div>
-    </div>
-</div>
-    
-	<script src="script.js"></script>
-</body>
+  <script src="script.js"></script>
 </html>
 
 

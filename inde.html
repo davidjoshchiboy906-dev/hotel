@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grand Horizon Hotel</title>
+    <style>
+        :root {
+            color-scheme: light;
+            --navy: #0f3d6b;
+            --gold: #d4a017;
+            --text: #15324d;
+            --bg: #f5f7fb;
+            --white: #ffffff;
+        }
+        * { 
+            box-sizing: border-box; margin: 0; padding: 0; 
+        }
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--bg);
+        }
+        a { text-decoration: none; color: inherit; }
+        nav {
+            background: var(--navy);
+            color: var(--white);
+            position: sticky;
+            top: 0;
+            z-index: 20;
+        }
+        .nav-wrap {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 1rem 1.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .brand { font-size: 1.2rem; font-weight: 700; letter-spacing: 0.04em; }
+        .nav-links {
+            display: flex;
+            gap: 0.75rem;
+            align-items: center;
+        }
+        .nav-links a {
+            padding: 0.5rem 0.8rem;
+            border-radius: 999px;
+            color: var(--white);
+            transition: background 0.2s ease;
+        }
+        .nav-links a:hover, .nav-links a.active {
+            background: rgba(255,255,255,0.16);
+        }
+        .menu-toggle {
+            display: none;
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.4);
+            color: var(--white);
+            padding: 0.45rem 0.7rem;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        .hero {
+            background: linear-gradient(135deg, rgba(15,61,107,0.95), rgba(23,111,164,0.9));
+            color: var(--white);
+            padding: 4.5rem 1.25rem 3rem;
+        }
+        .hero-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            gap: 1.25rem;
+            grid-template-columns: 1.2fr 0.8fr;
+            align-items: center;
+        }
+        .hero h1 { font-size: clamp(2rem, 4vw, 3.2rem); margin-bottom: 0.75rem; }
+        .hero p { max-width: 620px; font-size: 1.02rem; color: #e8f2ff; }
+        .hero-card {
+            background: rgba(255,255,255,0.95);
+            color: var(--text);
+            border-radius: 18px;
+            padding: 1.25rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        .hero-card h2 { color: var(--navy); margin-bottom: 0.5rem; }
+        .btn {
+            display: inline-block;
+            margin-top: 0.9rem;
+            background: var(--gold);
+            color: var(--white);
+            padding: 0.8rem 1rem;
+            border-radius: 999px;
+            font-weight: 700;
+        }
+        .section {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2rem 1.25rem 3rem;
+        }
+        .section h3 { font-size: 1.7rem; margin-bottom: 1rem; color: var(--navy); }
+        .grid {
+            display: grid;
+            gap: 1rem;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        }
+        .card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 1.1rem;
+            box-shadow: 0 8px 18px rgba(15,61,107,0.08);
+        }
+        .card h4 { margin-bottom: 0.35rem; color: var(--navy); }
+        .stats {
+            display: grid;
+            gap: 1rem;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            margin-top: 1.2rem;
+        }
+        .stat { background: #eaf3ff; border-radius: 16px; padding: 1rem; text-align: center; }
+        .stat strong { display: block; font-size: 1.5rem; color: var(--navy); }
+        footer {
+            background: #10263e;
+            color: #c8d6e7;
+            padding: 1.3rem 1.25rem;
+            text-align: center;
+        }
+        @media (max-width: 760px) {
+            .menu-toggle { display: inline-block; }
+            .nav-links {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 1rem;
+            flex-direction: column;
+            background: var(--navy);
+            padding: 0.75rem;
+            border-radius: 12px;
+            min-width: 160px;
+            }
+            .nav-links.open { display: flex; }
+            .hero-inner { grid-template-columns: 1fr; }
+        }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="nav-wrap">
+        <a class="brand" href="index.html">Grand Horizon Hotel</a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">☰</button>
+        <div class="nav-links" id="navLinks">
+          <a class="active" href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="services.html">Services</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+    </nav>
+  
+    <div class="relative">
+      <img src="images/build.png" class="w-screen" alt="">
+      <header class="hero absolute top-8 left-4">
+          <div class="hero-inner">
+            <div>
+              <h1>Stay in comfort, luxury, and style.</h1>
+              <p>Welcome to Grand Horizon Hotel, where elegant rooms, excellent service, and unforgettable views come together for a relaxing getaway.</p>
+              <a class="btn" href="contact.html">Book Your Stay</a>
+            </div>
+            <div class="hero-card">
+              <h2>Today’s Special</h2>
+              <p class="text-blue-700">Enjoy a complimentary breakfast and late checkout when you reserve a deluxe suite this week.</p>
+            </div>
+          </div>
+        </header>
+    </div>
+  
+    <main class="section">
+      <h3>Why guests love us</h3>
+      <div class="grid">
+        <div class="card">
+          <h4>Luxury Rooms</h4>
+          <p>Comfortable suites with premium bedding, smart amenities, and skyline views.</p>
+        </div>
+        <div class="card">
+          <h4>Fine Dining</h4>
+          <p>Enjoy chef-crafted meals from sunrise breakfast to candlelit dinners.</p>
+        </div>
+        <div class="card">
+          <h4>Relaxing Spa</h4>
+          <p>Rejuvenate with massages, saunas, and wellness treatments after a long day.</p>
+        </div>
+        <div class="card">
+          <h4>Friendly Staff</h4>
+          <p>Our team is always ready to make your stay smooth and memorable.</p>
+        </div>
+      </div>
+  
+      <div class="stats">
+        <div class="stat"><strong>24/7</strong><span>Front desk support</span></div>
+        <div class="stat"><strong>98%</strong><span>Guest satisfaction</span></div>
+        <div class="stat"><strong>5★</strong><span>Rated experience</span></div>
+        <div class="stat"><strong>20+</strong><span>Wellness services</span></div>
+      </div>
+  
+      <img src="images/about.png" class="w-full" alt="">
+    </main>
+  
+    <footer>
+      <p>Grand Horizon Hotel • 123 Ocean Avenue • info@grandhorizon.com</p>
+    </footer>
+  
+    <script src="script.js"></script>
+  </body>
+</html>
+  
+  
